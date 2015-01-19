@@ -1,0 +1,34 @@
+{
+  "name": "hashrouter",
+  "version": "0.0.1",
+  "description": "Generic http-hash router",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nthtran/hashrouter"
+  },
+  "keywords": [
+    "hash",
+    "router",
+    "routing"
+  ],
+  "author": "Nathan Tran",
+  "dependencies": {
+    "http-errors": "^1.2.8",
+    "http-hash": "^1.0.2"
+  },
+  "devDependencies": {
+    "istanbul": "0",
+    "mocha": "2"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nthtran/hashrouter/issues"
+  },
+  "homepage": "https://github.com/nthtran/hashrouter",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
+  }
+}
