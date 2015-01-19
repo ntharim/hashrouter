@@ -1,22 +1,20 @@
 var HttpHash = require('http-hash');
 var url = require('url');
-var HttpError = require('http-errors');
 
-module.exports = function HashRouter() {
+module.exports = function HashRouter(notFound) {
   var hash = HttpHash();
 
-  handleRequest.set = hash.set.bind(hash);
+  match.set = hash.set.bind(hash);
 
-  return handleRequest;
+  return match;
 
-  function handleRequest(path) {
+  function match(path) {
     var pathname = url.parse(path).pathname;
 
     var route = hash.get(pathname);
     if (route.handler === null) {
-      throw HttpError(404, {
-        pathname: pathname
-      });
+      fn = notFound || defaultNotFound;
+      fn(pathname);
     }
 
     var opts = {
@@ -30,3 +28,7 @@ module.exports = function HashRouter() {
     return route.handler.apply(null, args);
   }
 };
+
+function defaultNotFound() {
+  throw new Error('Not Found');
+}

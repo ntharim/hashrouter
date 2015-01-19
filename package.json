@@ -14,7 +14,6 @@
   ],
   "author": "Nathan Tran",
   "dependencies": {
-    "http-errors": "^1.2.8",
     "http-hash": "^1.0.2"
   },
   "devDependencies": {
