@@ -26,7 +26,7 @@ router.set('/foo', function foo(req, res, opts) {
   // do stuff
 });
 
-router('/foo', req, res);
+router('/foo', req, res); // can pass in any number of arguments
 ```
 
 `opts` is of form `{ params: , splat: }`
