@@ -51,4 +51,15 @@ describe('HashRouter()', function () {
 
     router('/beep/buzz', 'ctx');
   });
+
+  it('should throw 404', function () {
+    var router = HashRouter();
+    router.set('/foo/:bar', function foo() {});
+
+    try {
+      router('/beep/:buzz');
+    } catch (err) {
+      assert.equal(err.status, 404);
+    }
+  });
 });

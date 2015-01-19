@@ -19,8 +19,19 @@ npm install --save hashrouter
 ## Usage
 
 ```js
+var HashRouter = require('hashrouter');
 
+var router = HashRouter();
+router.set('/foo', function foo(req, res, opts) {
+  // do stuff
+});
+
+router('/foo', req, res);
 ```
+
+`opts` is of form `{ params: , splat: }`
+
+See [http-hash](https://github.com/Matt-Esch/http-hash) for more information.
 
 [npm-image]: https://img.shields.io/npm/v/hashrouter.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/hashrouter
