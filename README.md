@@ -21,7 +21,9 @@ npm install --save hashrouter
 ```js
 var HashRouter = require('hashrouter');
 
-var router = HashRouter();
+var router = HashRouter(function notFound() {
+  console.log('NOT FOUND 404');
+});
 router.set('/foo', function foo(req, res, opts) {
   // do stuff
 });

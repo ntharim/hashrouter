@@ -13,7 +13,7 @@ module.exports = function HashRouter(notFound) {
 
     var route = hash.get(pathname);
     if (route.handler === null) {
-      fn = notFound || defaultNotFound;
+      var fn = notFound || defaultNotFound;
       fn(pathname);
     }
 
